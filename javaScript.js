@@ -41,17 +41,12 @@ function Book(title,author,pages,read){
 Book.prototype.toggleBookStat =function(){
     if (this.status=="Read"){
         this.status= "Not Read"; 
-        console.log(this.status);
     }   
     else {
         this.status = "Read"
-        console.log(this.status); 
     }
     
 }}
-
-
-
 
 
 function addBooktoLibrary(book){ 
@@ -74,7 +69,7 @@ function PopulateTable(book){
         toggleButton.checked="false"; 
     }
     else {
-        toggleButton.setAttribute="checked"; 
+        toggleButton.checked="true"; 
     }
 
     toggleButton.addEventListener("change",function(){
@@ -88,6 +83,8 @@ function PopulateTable(book){
 
     removeIcon.addEventListener("click",()=>{
         newBookList.remove(); 
+        let indexToRemove = myLibrary.findIndex(element=>element.title==book.title); 
+        myLibrary.splice(indexToRemove,1); 
     }); 
 
     removeRow.appendChild(removeIcon); 
