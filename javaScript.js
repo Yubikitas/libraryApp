@@ -36,17 +36,21 @@ function Book(title,author,pages,read){
     this.author = author; 
     this.pages = pages; 
     this.status = read; 
+
     
 }
 
-function ToggleBook (book){
-    if (book.status=="Read"){
-        book.status= "Not Read"; 
+
+/*
+function ToggleBook (){
+    if (this.status=="Read"){
+        this.status= "Not Read"; 
+        console.log(this.status);
     }   
     else {
-        book.status = "Read"
+        this.status = "Read"
     }
-}
+*/
 
 function addBooktoLibrary(book){ 
     myLibrary.push(book); 
@@ -64,12 +68,25 @@ function PopulateTable(book){
     const toggleButton = document.createElement("input"); 
     toggleButton.type = "checkbox"; 
 
+    if (book.status=="Read"){
+        toggleButton.checked="false"; 
+    }
+    else {
+        toggleButton.setAttribute="checked"; 
+    }
+
+    toggleButton.addEventListener("change",function(){
+        if (toggleButton.checked){
+            ToggleBook(book); 
+        }
+    }); 
+
     var removeIcon = document.createElement("img"); 
     removeIcon.src = "erase.svg";
 
     removeIcon.addEventListener("click",()=>{
         newBookList.remove(); 
-        
+
     }); 
 
     removeRow.appendChild(removeIcon); 
