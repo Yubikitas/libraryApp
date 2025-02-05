@@ -19,6 +19,11 @@ submitData.addEventListener("click",()=>{
     const newBook = new Book(title.value, author.value,pages.value,status.value); 
     console.log(newBook); 
     addBooktoLibrary(newBook); 
+    
+    for (i=0;i<myLibrary.length;i++){ 
+        PopulateTable(myLibrary[i]); 
+    }
+
 }); 
 
 
@@ -27,15 +32,24 @@ function Book(title,author,pages,read){
     this.author = author; 
     this.pages = pages; 
     this.status = read; 
-   
+    
 }
 
 function ToggleBook (book){
-    book.status
+    if (book.status=="Read"){
+        book.status= "Not Read"; 
+    }   
+    else {
+        book.status = "Read"
+    }
 }
 
 function addBooktoLibrary(book){ 
     myLibrary.push(book); 
+}
+
+function PopulateTable(book){
+
     const newBookList = document.createElement("tr");
     const bookTitle = document.createElement("td"); 
     const bookAuthor = document.createElement("td"); 
@@ -45,8 +59,6 @@ function addBooktoLibrary(book){
     const removeRow = document.createElement("td"); 
     const toggleButton = document.createElement("input"); 
     toggleButton.type = "checkbox"; 
-
-
 
     var removeIcon = document.createElement("img"); 
     removeIcon.src = "erase.svg";
@@ -73,6 +85,6 @@ function addBooktoLibrary(book){
     bookStatus.textContent = book.status;
 
     libList.appendChild(newBookList); 
-
 }
+
 
