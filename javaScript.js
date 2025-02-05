@@ -19,7 +19,11 @@ submitData.addEventListener("click",()=>{
     const newBook = new Book(title.value, author.value,pages.value,status.value); 
     console.log(newBook); 
     addBooktoLibrary(newBook); 
-    
+    //erases existing DOM list 
+    while (libList.hasChildNodes()){
+        libList.removeChild(libList.lastChild); 
+    }
+    //populate list from array 
     for (i=0;i<myLibrary.length;i++){ 
         PopulateTable(myLibrary[i]); 
     }
@@ -65,6 +69,7 @@ function PopulateTable(book){
 
     removeIcon.addEventListener("click",()=>{
         newBookList.remove(); 
+        
     }); 
 
     removeRow.appendChild(removeIcon); 
