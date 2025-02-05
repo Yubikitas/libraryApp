@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library</title>
+    <link rel = "stylesheet" href = "styles.css"> 
+</head>
+<body>
+    <div class = "wholePage">
+        <div class = "navbar">
+            <div>
+                <img src = "pantheon.png" alt = "my Library">
+                    <h1>My Library</h1>
+                    <button class = "addBook">+ Book</button>
+
+            </div>
+                <dialog class ="modal" id = "modal">
+                    <form class = "form" method = "dialog">
+                        <div class="modalColumn">
+                            <label for = "titleInput">Book Title</label>
+                            <input id = "titleInput" type ="text">
+                        </div>
+                        <div class="modalColumn">
+                            <label for = "authorInput">Author</label>
+                            <input id = "authorInput" type ="text">
+                        </div>
+                        <div class="modalColumn">
+                            <label for = "pagesInput">Pages</label>
+                            <input id = "pagesInput" type ="text">
+                        </div>
+                        <div class="modalRadio">
+                            <h4>Read Status</h4>
+                                <div>
+                                    <input type = "radio" name = "readStatus" id = "read" value="Read">
+                                    <label for="read">Read</label>
+                                </div>
+                               <div>
+                                   <input type = "radio" name = "readStatus" id = "notRead" value="Not Read">
+                                   <label for="notRead">Not Read</label>
+                               </div>
+                        </div>
+                        <div class="modalButtons">
+                            <button class = "closeButton">Close Form</button>
+                            <button class ="submitButton">Add Book</button>
+                        </div>
+                    </form>
+                </dialog>
+        </div>
+        <div class = "mainContent">
+            <table class = "listHead">
+                <tr>
+                    <thead>
+                        <td>Title</td>
+                        <td>Author</td>
+                        <td>Pages</td>
+                        <td>Status</td>
+                        <td>Change Read</td>
+                        <td>Remove</td>
+                    </thead>
+                </tr>
+            </table>
+      
+        </div>
+    </div>
+
+    
+    <script src = "javaScript.js"></script>
+</body>
+</html>
